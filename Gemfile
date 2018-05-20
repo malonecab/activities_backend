@@ -31,6 +31,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6'
   gem 'capybara', '~> 2.18'
+  gem 'rubocop'
+  gem 'rubocop-checkstyle_formatter', require: false
 end
 
 group :development do
