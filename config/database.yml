@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch('DATABASE_HOST') %>
+  username: <%= ENV.fetch('POSTGRES_USER') %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD') %>
+  pool: 5
+  variables:
+    statement_timeout: 5000
+
+development:
+  <<: *default
+  database: activities_development
+
+test:
+  <<: *default
+  database: activities_test
+
+production:
+  <<: *default
+  database: activities_production

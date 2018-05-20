@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/var/www/backend
+    env_file:
+      - .env.dev.database
+      - .env.dev.backend
+
+  database:
+    image: postgres
+    env_file:
+      - .env.dev.database
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
